@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-VERSION="${VERSION:-0.5.0}"
+VERSION="${VERSION:-0.6.1}"
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 LOGBOOK_JAR="${LOGBOOK_JAR:-$HOME/logbook-kai/logbook-kai.jar}"
 WORK="$ROOT/.release-build"
@@ -58,10 +58,13 @@ EOF
 )
 
 STAGE="$WORK/logbook-kai-cdp-bridge-v$VERSION"
-mkdir -p "$STAGE/extension" "$STAGE/plugin" "$STAGE/examples"
+mkdir -p "$STAGE/extension" "$STAGE/plugin" "$STAGE/examples" "$STAGE/scripts"
 cp -a "$ROOT/extension/." "$STAGE/extension/"
 cp -a "$PLUGIN_JAR" "$STAGE/plugin/"
 cp -a "$ROOT/examples/auto.sh" "$STAGE/examples/"
+cp -a "$ROOT/scripts/finalize-mint-environment.sh" "$STAGE/scripts/"
+cp -a "$ROOT/scripts/backup-mint-environment.sh" "$STAGE/scripts/"
+cp -a "$ROOT/scripts/verify-obs-recording-mount.sh" "$STAGE/scripts/"
 cp -a "$ROOT/README.md" "$ROOT/LICENSE" "$ROOT/ACKNOWLEDGEMENTS.md" "$STAGE/"
 [[ -f "$NOTES" ]] && cp -a "$NOTES" "$STAGE/RELEASE_NOTES.md"
 
@@ -106,7 +109,7 @@ echo "無効化しました: \$DST"
 echo "航海日誌改を再起動してください。"
 EOF
 
-chmod +x "$STAGE/plugin/install.sh" "$STAGE/plugin/disable.sh"
+chmod +x "$STAGE/plugin/install.sh" "$STAGE/plugin/disable.sh" "$STAGE/scripts/"*.sh "$STAGE/examples/auto.sh"
 
 (
   cd "$WORK"
