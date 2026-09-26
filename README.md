@@ -2,6 +2,12 @@
 
 KLB は、Google Chrome で動作する艦これと **航海日誌改 (logbook-kai)** を直接連携するための非公式ツールです。
 
+## 構成図
+
+[![KLB 構成図](docs/images/klb-architecture.png)](docs/images/klb-architecture.png)
+
+Chrome 上の艦これ通信を、同一 PC 内の KLB 経由で航海日誌改へ連携する構成です。
+
 ## 構成要素
 
 | コンポーネント | 役割 |
