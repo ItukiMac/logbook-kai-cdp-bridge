@@ -2,7 +2,7 @@
 
 ## Finalize autostart
 
-`scripts/finalize-mint-environment.sh` installs the current Direct Bridge startup script
+`scripts/finalize-mint-environment.sh` installs the current KLB startup script
 to `$HOME/logbook-kai/auto.sh`, rewrites the MATE autostart entry, and archives the
 previous startup files under `archive-runtime/`.
 
@@ -12,7 +12,7 @@ The active startup intentionally contains no MessageFlow/8890 dependency and no
 ## Backup
 
 `scripts/backup-mint-environment.sh` creates a mode-600 tar.gz plus SHA256 manifest.
-It backs up the logbook-kai state/config, Direct Bridge plugin/extension, MATE autostart,
+It backs up the logbook-kai state/config, KLB plugin/extension, MATE autostart,
 minimal Chrome extension registration settings, OBS, Deskflow, and Linux RustDesk config.
 
 Chrome cookies and login databases are intentionally excluded.
