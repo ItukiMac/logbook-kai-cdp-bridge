@@ -29,7 +29,11 @@ copy_path() {
 copy_path "$LOGBOOK_DIR/config" "logbook-kai/config"
 copy_path "$LOGBOOK_DIR/battlelog" "logbook-kai/battlelog"
 copy_path "$LOGBOOK_DIR/資材ログ.csv" "logbook-kai/資材ログ.csv"
-copy_path "$LOGBOOK_DIR/plugins/kancolle-cdp-bridge.jar" "logbook-kai/plugins/kancolle-cdp-bridge.jar"
+if [[ -f "$LOGBOOK_DIR/plugins/klb-logbook-plugin.jar" ]]; then
+    copy_path "$LOGBOOK_DIR/plugins/klb-logbook-plugin.jar" "logbook-kai/plugins/klb-logbook-plugin.jar"
+else
+    copy_path "$LOGBOOK_DIR/plugins/kancolle-cdp-bridge.jar" "logbook-kai/plugins/kancolle-cdp-bridge.jar"
+fi
 copy_path "$LOGBOOK_DIR/cdp-bridge/extension" "logbook-kai/cdp-bridge/extension"
 copy_path "$LOGBOOK_DIR/auto.sh" "logbook-kai/auto.sh"
 
@@ -60,7 +64,7 @@ copy_path "$HOME/.config/rustdesk/config.toml" ".config/rustdesk/config.toml"
     echo "=== mounts ==="
     findmnt -rno TARGET,SOURCE,FSTYPE,OPTIONS
     echo
-    echo "=== Direct Bridge health ==="
+    echo "=== KLB health ==="
     curl -fsS http://127.0.0.1:8891/health 2>/dev/null || true
 } >> "$MANIFEST"
 
