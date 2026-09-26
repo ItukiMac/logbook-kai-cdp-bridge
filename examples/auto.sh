@@ -35,7 +35,7 @@ if ! curl -fsS "$HEALTH_URL" >/dev/null 2>&1; then
           --urgency=critical \
           --expire-time=0 \
           "艦これ環境" \
-          "航海日誌 Direct Bridge :8891 の起動確認に失敗しました"
+          "KLB Logbook Plugin :8891 の起動確認に失敗しました"
     fi
 fi
 
