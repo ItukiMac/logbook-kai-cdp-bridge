@@ -65,7 +65,7 @@ cp -a "$ROOT/examples/auto.sh" "$STAGE/examples/"
 cp -a "$ROOT/scripts/finalize-mint-environment.sh" "$STAGE/scripts/"
 cp -a "$ROOT/scripts/backup-mint-environment.sh" "$STAGE/scripts/"
 cp -a "$ROOT/scripts/verify-obs-recording-mount.sh" "$STAGE/scripts/"
-cp -a "$ROOT/README.md" "$ROOT/LICENSE" "$ROOT/ACKNOWLEDGEMENTS.md" "$STAGE/"
+cp -a "$ROOT/README.md" "$ROOT/LICENSE" "$STAGE/"
 cp -a "$ROOT/docs/." "$STAGE/docs/"
 [[ -f "$NOTES" ]] && cp -a "$NOTES" "$STAGE/RELEASE_NOTES.md"
 
