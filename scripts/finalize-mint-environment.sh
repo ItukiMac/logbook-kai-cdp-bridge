@@ -30,7 +30,7 @@ cat > "$DESKTOP" <<EOF
 [Desktop Entry]
 Type=Application
 Name=艦これ環境
-Comment=航海日誌改とChrome Direct Bridgeを起動
+Comment=航海日誌改とKLB Chrome Extensionを起動
 Exec=$LOGBOOK_DIR/auto.sh
 Terminal=false
 X-GNOME-Autostart-enabled=true
